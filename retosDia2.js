@@ -11,25 +11,25 @@ async function main() {
 
         console.log('Conectado a la base de datos MySQL');
 
-    let notaMedia = "SELECT AVG(mark) AS nota_media FROM marks WHERE subject_id = 1"
-    const [result] = await connection.query(notaMedia);
-    console.log(result);
+    // let notaMedia = "SELECT AVG(mark) AS nota_media FROM marks WHERE subject_id = 1"
+    // const [result] = await connection.query(notaMedia);
+    // console.log(result);
 
-        await connection.end();
-    }
-    catch (error) {
-    console.error('Error:', error);
-    }
-
-    //   let totalAlumnos = "SELECT * from groups"
-    //   const [result] = await connection.query(totalAlumnos);
-    //   console.log(result);
-
-    //   await connection.end();
+    //     await connection.end();
     // }
-    // catch(error){
-    //   console.error('Error:', error);
+    // catch (error) {
+    // console.error('Error:', error);
     // }
+
+      let totalAlumnos = "SELECT COUNT (*) from students"
+      const [result] = await connection.query(totalAlumnos);
+      console.log(result);
+
+      await connection.end();
+    }
+    catch(error){
+      console.error('Error:', error);
+    }
 
     // let eliminarNotas = "DELETE FROM marks WHERE mark > 5 AND YEAR(date) = 2023"
     // const [result] = await connection.query(eliminarNotas);
